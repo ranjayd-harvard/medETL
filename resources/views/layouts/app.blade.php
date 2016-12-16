@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -36,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'CharityDB') }}
                     </a>
                 </div>
 
@@ -83,5 +84,17 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <footer>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+        ranjayd.me &nbsp;&copy; {{ date('Y') }} &nbsp;&nbsp;
+        <a href='https://github.com/ranjayd-harvard/p4' target='_blank'><i class='fa fa-github'></i> View on Github</a> &nbsp;&nbsp;
+        <a href='http://p4.ranjayd.me/' target='_blank'><i class='fa fa-link'></i> View Live</a>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
