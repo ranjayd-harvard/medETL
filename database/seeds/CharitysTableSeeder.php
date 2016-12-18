@@ -21,7 +21,7 @@ class CharitysTableSeeder extends Seeder
             DB::table('charitys')->insert([
               'created_at' => Carbon\Carbon::now()->toDateTimeString(),
               'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-              'charity_name' => $user->firstName.' - Charity '. $i,
+              'charity_name' => $user->name.' - Charity '. $i,
               'charity_desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed urna arcu. Integer sit amet risus nisi. Nulla ut consequat quam. Etiam at facilisis metus, id lobortis elit. Donec vel nulla egestas, malesuada arcu vel, pellentesque augue. Nullam quis dapibus neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
               'address1' => '123 Main St',
               'address2' => '',

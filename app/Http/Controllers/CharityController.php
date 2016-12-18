@@ -14,16 +14,14 @@ class CharityController extends Controller
     */
     public function index(Request $request)
     {
-      #$user = $request->user();
-      #if($user) {
-          $charitys = Charity::all();
-          #where('user_id', '=', $user->id)->orderBy('id','DESC')->get();
-      #}
-      #else {
-      #    $charitys = ['ABC'];
-      #}
+      $user = $request->user();
+      if($user) {
+          $charitys = Charity::where('user_id', '=', $user->id)->orderBy('id','DESC')->get();
+      }
+      else {
+          $charitys = [];
+      }
 
-      #dd($charitys);
       return view('charity.index')->with([
           'charitys' => $charitys
       ]);
@@ -73,7 +71,7 @@ class CharityController extends Controller
         $charity->phone1 = $request->input('phone');
         $charity->zipcode = $request->input('zipcode');
         $charity->country = 'USA';
-        $charity->user_id = 1;
+        $charity->user_id = $request->user()->id;
         $charity->save();
 
         # Save Tags
@@ -153,7 +151,7 @@ class CharityController extends Controller
         $charity->phone1 = $request->input('phone');
         $charity->zipcode = $request->input('zipcode');
         $charity->country = 'USA';
-        $charity->user_id = 1;
+        $charity->user_id = $request->user()->id;
         $charity->save();
 
         # If there were tags selected...

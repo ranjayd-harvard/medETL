@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    My Charities
+    View all Charities
 @endsection
 
 @section('content')
@@ -13,16 +13,15 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>My Charities </h1>
+        <h1>Your search results : {{ sizeof($charitys)}} charities</h1>
         <h5>PS: ( Images are random and will change with every refresh. Later the functionality to upload the images will be added. ) </h5>
-        <a class='btn btn-success' href='/charitys/create'>Add a Charity</a>
         <hr>
 
         @if(sizeof($charitys) == 0)
             <h4>You have not added any Charities yet, please <a class='btn btn-success' href='/charitys/create'>Add a Charity</a> now to get started</a></h4>
             <br><br><br>
         @else
-            <div id='books' class='cf'>
+            <div id='charities' class='cf'>
                 @foreach($charitys as $charity)
 
                 <div class="row">
@@ -35,7 +34,6 @@
                           <a href='/charitys/{{ $charity->id }}'><h3 class='truncate'>{{ $charity->charity_name }}</h3></a>
                           {{ $charity->charity_desc }}
                           <br><br>
-
                           <a class='btn btn-info' href='/charitys/{{ $charity->id }}'><i class='fa fa-eye'></i> View Charity</a>
                           &nbsp;&nbsp;
                           @if(Auth::check())

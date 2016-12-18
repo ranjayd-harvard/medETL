@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>CharityDB</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -16,30 +16,49 @@
     </head>
     <body>
         <div id="app" class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
+
+            @if(Auth::check())
+              <div class="top-right links">
+                  <a href='/'>Welcome {{ Auth::user()->name }} !</a>
+                  <a href='/charitys/create'>Add a Charity</a>
+                  <a href='/charitys'>My Charities</a>
+                  <a href='/logout'>Log out</a>
+              </div>
+            @else
+              <div class="top-right links">
+                <a href='/'>Home</a>
+                <a href='/register'>Register</a>
+                <a href='/login'>Log in</a>
+              </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
                     CharityDB
                 </div>
-                Search Local Charities and Food Banks
+                <br>
+                Project P4 for class Dynamic Web Applications 2016
                 <hr>
                 <br>
-            <form class="form-horizontal" role="form" method="POST" action="#">
-                    {{ csrf_field() }}
                 <div class="form-group">
                     <div class="mainlinks">
-                          <a href="/charitys">Search Charities</a>
+                          <a class="btn btn-primary" href="/search">Search Charities</a>
                     </div>
                 </div>
-            </form>
 
             </div>
         </div>
+
+        <footer class="footer">
+                     <div class="container">
+                       <div class="row">
+                           <div class="col-md-12 links">
+                             ranjayd.me &nbsp;&copy; {{ date('Y') }} &nbsp;&nbsp;
+                             <a href='https://github.com/ranjayd-harvard/p4' target='_blank'><i class='fa fa-github'></i> View on Github</a> &nbsp;&nbsp;
+                             <a href='http://p4.ranjayd.me/' target='_blank'><i class='fa fa-link'></i> View Live</a>
+                           </div>
+                         </div>
+                    </div>
+        </footer>
     </body>
 </html>

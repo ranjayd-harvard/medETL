@@ -20,10 +20,52 @@
 
           <p class='truncate'>{{ $charity->charity_desc}} </p>
 
-          <img src="https://source.unsplash.com/random/{{$charity->id}}"/>
-          <br><br>
-          <a class='btn btn-primary' href='/charitys/{{ $charity->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-          <a class='btn btn-danger' href='/charitys/{{ $charity->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+          <img height="400px" class="charityImg" src="https://source.unsplash.com/random/{{$charity->id}}"/>
+
+          <h2>Feature for the charity:
+          <a class='btn btn-success' href='/charitys/create'>Add Feature</a></h2>
+          @foreach($charity->features()->get() as $feature)
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-11">
+              <h4> {{ $feature->name }}</h4>
+              <p>{{ $feature->description }}</p>
+              @if(Auth::check())
+              <a class='btn btn-primary' href='/charitys/{{ $charity->id }}/edit'><i class='fa fa-pencil'></i> Edit Feature</a>
+              &nbsp;&nbsp;
+              <a class='btn btn-danger' href='/charitys/{{ $charity->id }}/delete'><i class='fa fa-trash'></i> Delete Feature</a>
+              @endif
+              </div>
+            </div>
+          @endforeach
+
+          <br>
+
+          <h2>Members for the charity:
+          <a class='btn btn-success' href='/charitys/create'>Add Member</a></h2>
+          @foreach($charity->members()->get() as $member)
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+
+              <h3> {{ $member->member_name }}</h3>
+              <p>{{ $member->profile_desc }}</p>
+              @if(Auth::check())
+              <a class='btn btn-primary' href='/charitys/{{ $charity->id }}/edit'><i class='fa fa-pencil'></i> Edit Member</a>
+              &nbsp;&nbsp;
+              <a class='btn btn-danger' href='/charitys/{{ $charity->id }}/delete'><i class='fa fa-trash'></i> Delete Member</a>
+              @endif
+            </div>
+          </div>
+          @endforeach
+
+          <br>
+
+          @if(Auth::check())
+          <h2>Management Links:</h2>
+          <a class='btn btn-primary' href='/charitys/{{ $charity->id }}/edit'><i class='fa fa-pencil'></i> Edit Charity</a>
+          <a class='btn btn-danger' href='/charitys/{{ $charity->id }}/delete'><i class='fa fa-trash'></i> Delete Charity</a>
+          @endif
 
           <br><br>
 

@@ -46,19 +46,43 @@ html, body {
 }
 
 .mainlinks > a {
-    color: #0094bf;
-    padding: 0 25px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
+  background: #e1e1e1 none repeat scroll 0 0;
+  color: #DC143C;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mainlinks > a:hover {
+  background: #0093cf none repeat scroll 0 0;
+  color:#e1e1e1;
 }
 
 .m-b-md {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 h5 {
   color: #093bcf;
+}
+
+.charityImg {
+  border: 1px solid #999;
+  margin:auto;
+  margin-top:20px;
+}
+
+.flash_message {
+  background: #ffff00 none repeat scroll 0 0;
+  color:#444444;
+  padding: 10px;
+  border: 1px dotted #666666;
+}
+
+.footer {
+  background: #e1e1e1 none repeat scroll 0 0;
+  padding: 16px;
 }

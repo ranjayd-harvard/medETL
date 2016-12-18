@@ -15,27 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+# Index page to show all the charitys
+Route::get('/search', 'SearchController@index')->name('search.index');
+
 /**
 * Charity resource
 */
 # Index page to show all the charitys
 Route::get('/charitys', 'CharityController@index')->name('charitys.index');
-#->middleware('auth');
-# Show a form to create a new book
-Route::get('/charitys/create', 'CharityController@create')->name('charitys.create');
-#->middleware('auth');
-# Process the form to create a new charitys
-Route::post('/charitys', 'CharityController@store')->name('charitys.store');
+# Show a form to create a new charity
+Route::get('/charitys/create', 'CharityController@create')->name('charitys.create')->middleware('auth');
+# Process the form to create a new charity
+Route::post('/charitys', 'CharityController@store')->name('charitys.store')->middleware('auth');
 # Show an individual charity
 Route::get('/charitys/{title}', 'CharityController@show')->name('charitys.show');
 # Show form to edit a charitys
-Route::get('/charitys/{id}/edit', 'CharityController@edit')->name('charitys.edit');
+Route::get('/charitys/{id}/edit', 'CharityController@edit')->name('charitys.edit')->middleware('auth');
 # Process form to edit a book
-Route::put('/charitys/{id}', 'CharityController@update')->name('charitys.update');
+Route::put('/charitys/{id}', 'CharityController@update')->name('charitys.update')->middleware('auth');
 # Get route to confirm deletion of book
-Route::get('/charitys/{id}/delete', 'CharityController@delete')->name('charitys.destroy');
+Route::get('/charitys/{id}/delete', 'CharityController@delete')->name('charitys.destroy')->middleware('auth');
 # Delete route to actually destroy the book
-Route::delete('/charitys/{id}', 'CharityController@destroy')->name('charitys.destroy');
+Route::delete('/charitys/{id}', 'CharityController@destroy')->name('charitys.destroy')->middleware('auth');
 
 
 
@@ -76,9 +77,7 @@ Route::get('/debug', function() {
 });
 
 Auth::routes();
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index');
