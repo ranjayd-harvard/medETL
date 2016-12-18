@@ -27,13 +27,14 @@
                 <div class="title m-b-md">
                     CharityDB
                 </div>
+                Search Local Charities and Food Banks
                 <hr>
                 <br>
             <form class="form-horizontal" role="form" method="POST" action="#">
                     {{ csrf_field() }}
                 <div class="form-group">
                     <div class="mainlinks">
-                          <a href="/">Search Charities</a>
+                          <a href="/charitys">Search Charities</a>
                     </div>
                 </div>
             </form>
