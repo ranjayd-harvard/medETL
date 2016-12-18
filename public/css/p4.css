@@ -86,3 +86,11 @@ h5 {
   background: #e1e1e1 none repeat scroll 0 0;
   padding: 16px;
 }
+
+.profilePic {
+  background: #eeeeee none repeat scroll 0 0;
+  border: 1px dotted #999999;
+  width:160px;
+  height:160px;
+  margin-top: 20px;
+}

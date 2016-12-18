@@ -33,6 +33,7 @@
                       <section class='charity'>
 
                           <a href='/charitys/{{ $charity->id }}'><h3 class='truncate'>{{ $charity->charity_name }}</h3></a>
+                          <h5> {{ $charity->address1 }}, {{ $charity->city }} {{ $charity->state }} {{ $charity->zipcode }}</h5>
                           {{ $charity->charity_desc }}
                           <br><br>
 

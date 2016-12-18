@@ -15,10 +15,11 @@ class CreateMembersTable extends Migration
     {
       Schema::create('members', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('member_name',30)->unique();
-                $table->string('profile_desc',1024);
+                $table->string('member_name',30);
+                $table->string('profile_desc',1024)->nullable();
                 $table->integer('charity_id');
                 $table->timestamps();
+                $table->unique(array('member_name', 'charity_id'));
         });
     }
 

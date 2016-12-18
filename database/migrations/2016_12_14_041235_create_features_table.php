@@ -15,10 +15,11 @@ class CreateFeaturesTable extends Migration
      {
        Schema::create('features', function (Blueprint $table) {
                  $table->increments('id');
-                 $table->string('name',100)->unique();
-                 $table->string('description',1024);
+                 $table->string('name',100);
+                 $table->string('description',1024)->nullable();
                  $table->integer('charity_id');
                  $table->timestamps();
+                 $table->unique(array('name', 'charity_id'));
          });
      }
 

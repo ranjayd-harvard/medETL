@@ -32,15 +32,7 @@ class CharityController extends Controller
     */
     public function create()
     {
-        # Author
-        #$authors_for_dropdown = Author::getForDropdown();
-        # Author
-        #$tags_for_checkboxes = Tag::getForCheckboxes();
         return view('charity.create');
-        #->with([
-        #    'authors_for_dropdown' => $authors_for_dropdown,
-        #    'tags_for_checkboxes' => $tags_for_checkboxes
-        #]);
     }
 
 
@@ -74,11 +66,6 @@ class CharityController extends Controller
         $charity->user_id = $request->user()->id;
         $charity->save();
 
-        # Save Tags
-        #$tags = ($request->tags) ?: [];
-        #$charity->tags()->sync($tags);
-        $charity->save();
-
         Session::flash('flash_message', 'Your charity '.$charity->title.' was added.');
 
         return redirect('/charitys');
@@ -106,20 +93,9 @@ class CharityController extends Controller
     public function edit($id)
     {
         $charity = Charity::find($id);
-        # Possible authors
-        #$authors_for_dropdown = Author::getForDropdown();
-        # Possible tags
-        #$tags_for_checkboxes = Tag::getForCheckboxes();
-        # Just the tags for this book
-        #$tags_for_this_book = [];
-        #foreach($book->tags as $tag) {
-        #    $tags_for_this_book[] = $tag->name;
-        #}
+
         return view('charity.edit')->with([
                 'charity' => $charity,
-        #        'authors_for_dropdown' => $authors_for_dropdown,
-        #        'tags_for_checkboxes' => $tags_for_checkboxes,
-        #        'tags_for_this_book' => $tags_for_this_book,
         ]);
     }
 
@@ -154,22 +130,6 @@ class CharityController extends Controller
         $charity->user_id = $request->user()->id;
         $charity->save();
 
-        # If there were tags selected...
-        #if($request->tags) {
-        #    $tags = $request->tags;
-        #}
-        # If there were no tags selected (i.e. no tags in the request)
-        # default to an empty array of tags
-        #else {
-        #    $tags = [];
-        #}
-
-        # Above if/else could be condensed down to this: $tags = ($request->tags) ?: [];
-
-        # Sync tags
-        #$book->tags()->sync($tags);
-        #$book->save();
-
         # Finish
         Session::flash('flash_message', 'Your changes to '.$charity->charity_name.' were saved.');
         return redirect('/charitys');
@@ -177,15 +137,15 @@ class CharityController extends Controller
 
 
     /**
-	* GET
-    * Page to confirm deletion
-	*/
-    public function delete($id) {
+  	* GET
+      * Page to confirm deletion
+  	*/
+      public function delete($id) {
 
-        $charity = Charity::find($id);
+          $charity = Charity::find($id);
 
-        return view('charity.delete')->with('charity', $charity);
-    }
+          return view('charity.delete')->with('charity', $charity);
+      }
 
     /**
     * POST
@@ -200,10 +160,14 @@ class CharityController extends Controller
             return redirect('/charitys');
         }
 
-        # First remove any tags associated with this book
-        #if($book->tags()) {
-        #    $book->tags()->detach();
-        #}
+        # First remove any features/members associated with this charity
+        if($charity->features()) {
+            $charity->features()->delete();
+        }
+        if($charity->members()) {
+            $charity->members()->delete();
+        }
+
 
         # Then delete the charity
         $charity->delete();

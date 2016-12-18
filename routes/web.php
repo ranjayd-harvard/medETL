@@ -29,16 +29,48 @@ Route::get('/charitys/create', 'CharityController@create')->name('charitys.creat
 Route::post('/charitys', 'CharityController@store')->name('charitys.store')->middleware('auth');
 # Show an individual charity
 Route::get('/charitys/{title}', 'CharityController@show')->name('charitys.show');
-# Show form to edit a charitys
+# Show form to edit a charity
 Route::get('/charitys/{id}/edit', 'CharityController@edit')->name('charitys.edit')->middleware('auth');
-# Process form to edit a book
+# Process form to edit a charity
 Route::put('/charitys/{id}', 'CharityController@update')->name('charitys.update')->middleware('auth');
-# Get route to confirm deletion of book
+# Get route to confirm deletion of charity
 Route::get('/charitys/{id}/delete', 'CharityController@delete')->name('charitys.destroy')->middleware('auth');
-# Delete route to actually destroy the book
+# Delete route to actually destroy the charity
 Route::delete('/charitys/{id}', 'CharityController@destroy')->name('charitys.destroy')->middleware('auth');
 
 
+/**
+* Feature resource
+*/
+# Show a form to create a new feature charity
+Route::get('/charitys/{charity_id}/feature/create', 'FeatureController@create')->name('features.create')->middleware('auth');
+# Process the form to create a new charity
+Route::post('/charitys/{charity_id}/feature', 'FeatureController@store')->name('features.store')->middleware('auth');
+# Show form to edit feature for charity
+Route::get('/charitys/{charity_id}/feature/{id}/edit', 'FeatureController@edit')->name('features.edit')->middleware('auth');
+# Process form to edit a feature for charity
+Route::put('/charitys/{charity_id}/feature/{id}', 'FeatureController@update')->name('features.update')->middleware('auth');
+# Get route to confirm deletion of feature
+Route::get('/charitys/{charity_id}/feature/{id}/delete', 'FeatureController@delete')->name('features.destroy')->middleware('auth');
+# Delete route to actually destroy the feature
+Route::delete('/charitys/{charity_id}/feature/{id}', 'FeatureController@destroy')->name('features.destroy')->middleware('auth');
+
+
+/**
+* Member resource
+*/
+# Show a form to create a new member charity
+Route::get('/charitys/{charity_id}/member/create', 'MemberController@create')->name('members.create')->middleware('auth');
+# Process the form to create a new member to charity
+Route::post('/charitys/{charity_id}/member', 'MemberController@store')->name('members.store')->middleware('auth');
+# Show form to edit member for charity
+Route::get('/charitys/{charity_id}/member/{id}/edit', 'MemberController@edit')->name('members.edit')->middleware('auth');
+# Process form to edit a member for charity
+Route::put('/charitys/{charity_id}/member/{id}', 'MemberController@update')->name('members.update')->middleware('auth');
+# Get route to confirm deletion of member
+Route::get('/charitys/{charity_id}/member/{id}/delete', 'MemberController@delete')->name('members.destroy')->middleware('auth');
+# Delete route to actually destroy the member
+Route::delete('/charitys/{charity_id}/member/{id}', 'MemberController@destroy')->name('members.destroy')->middleware('auth');
 
 
 Route::get('/debug', function() {

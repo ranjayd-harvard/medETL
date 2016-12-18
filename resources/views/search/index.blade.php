@@ -32,11 +32,12 @@
                       <section class='charity'>
 
                           <a href='/charitys/{{ $charity->id }}'><h3 class='truncate'>{{ $charity->charity_name }}</h3></a>
+                          <h5> {{ $charity->address1 }}, {{ $charity->city }} {{ $charity->state }} {{ $charity->zipcode }}</h5>
                           {{ $charity->charity_desc }}
                           <br><br>
                           <a class='btn btn-info' href='/charitys/{{ $charity->id }}'><i class='fa fa-eye'></i> View Charity</a>
                           &nbsp;&nbsp;
-                          @if(Auth::check())
+                          @if(Auth::check() and Auth::user()->id == $charity->user_id )
                           <a class='btn btn-primary' href='/charitys/{{ $charity->id }}/edit'><i class='fa fa-pencil'></i> Edit Charity</a>
                           &nbsp;&nbsp;
                           <a class='btn btn-danger' href='/charitys/{{ $charity->id }}/delete'><i class='fa fa-trash'></i> Delete Charity</a>
