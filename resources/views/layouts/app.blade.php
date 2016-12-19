@@ -16,7 +16,6 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
 
     @yield('head')
 
