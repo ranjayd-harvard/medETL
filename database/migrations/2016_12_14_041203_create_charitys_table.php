@@ -15,7 +15,7 @@ class CreateCharitysTable extends Migration
     {
         Schema::create('charitys', function (Blueprint $table) {
                   $table->increments('id');
-                  $table->string('charity_name',30)->unique();
+                  $table->string('charity_name',100);
                   $table->string('charity_desc',1024);
                   $table->string('address1',128);
                   $table->string('address2',128)->nullable();
@@ -24,8 +24,9 @@ class CreateCharitysTable extends Migration
                   $table->string('phone1',20);
                   $table->string('state',30);
                   $table->string('country',30);
-                  $table->integer('user_id');          
+                  $table->integer('user_id');
                   $table->timestamps();
+                  $table->unique(array('charity_name', 'user_id'));
           });
     }
 
