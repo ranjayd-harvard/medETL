@@ -12,7 +12,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Editing member ( {{ $member->member_name }} ) Charity : <strong>{{ $charity->charity_name }}</strong></div>
                     <div class="panel-body">
-                      <form class="form-horizontal" role="form" method='POST' action='/charitys/{{ $charity->id }}/member/{{ $member->id }}'>
+                      <form class="form-horizontal" method='POST' action='/charitys/{{ $charity->id }}/member/{{ $member->id }}'>
                           {{ method_field('PUT') }}
 
                           {{ csrf_field() }}
