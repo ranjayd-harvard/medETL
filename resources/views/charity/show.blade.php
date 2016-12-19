@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5>PS: ( Images are random and will change with every refresh. Later the functionality to upload the images will be added. ) </h5>
+        <h5>PS: ( Images are random ( courtesy of https://source.unsplash.com ) and will change with every refresh. Later the functionality to upload the images will be added. ) </h5>
         <a class='btn btn-success' href='/charitys'>&larr; Return to all charitys</a>
       <hr>
           <h1 class='truncate'>{{ $charity->charity_name }}</h1>

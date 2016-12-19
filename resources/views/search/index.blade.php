@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Your search results : {{ sizeof($charitys)}} charities</h1>
-        <h5>PS: ( Images are random and will change with every refresh. Later the functionality to upload the images will be added. ) </h5>
+        <h5>PS: ( Images are random ( courtesy of https://source.unsplash.com ) and will change with every refresh. Later the functionality to upload the images will be added. ) </h5>
         <hr>
 
         @if(sizeof($charitys) == 0)
