@@ -24,4 +24,4 @@ Project Details:
 * Bootstrap grid template is used for the layout
 * very light javascript and CSS is also used to make the page look clean
 * Demo url for this project is: http://p4.ranjayd.me
-* Link to the Video: https://youtu.be/vYYudsBOYrI
+* Link to the Video: https://youtu.be/HDKAezt90Kk
