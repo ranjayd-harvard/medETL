@@ -2,6 +2,8 @@
 
 This is the fourth/final project(p4) for the dwa15 class(fall 2016). The goal for this project is to create a web application called CharityDB. CharityDB is simple Web application which allows the local charities to build their profile and store them in the database. Once CharityDB database is built and populated, users can search the database and expand it to connect to their social media profiles and can run campaigns and donations drive. The phase 1 of this projects just showing the profile builder and will be enhanced over time.
 
+PS: The images used in this projects are random images courtesy of https://source.unsplash.com
+
 Base features includes
 
 * Add New Charity
