@@ -33,20 +33,24 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    CharityDB
-                </div>
-                <br>
-                Project P4 for class Dynamic Web Applications 2016
-                <hr>
-                <br>
-                <div class="form-group">
-                    <div class="mainlinks">
-                          <a class="btn btn-primary" href="/search">Search Charities</a>
-                    </div>
-                </div>
-
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="title m-b-md">
+                      {{-- load<span style="font-weight:900;">I2B2</span><br> --}}
+                      load<span style="font-weight:900;">TM</span>
+                  </div>
+                  <br>
+                  <div style="width:800px;">{!! lorem(1) !!}</div>
+                  <hr>
+                  <br>
+                  <div class="form-group">
+                      <div class="mainlinks">
+                            <a class="btn btn-primary" href="/search">Start Load...</a>
+                      </div>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <footer class="footer">
